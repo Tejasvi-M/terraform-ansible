@@ -1,0 +1,6 @@
+---
+- name: Configure web server
+  hosts: "{{ host }}"
+  roles:
+    - install_packages
+    - user_and_group

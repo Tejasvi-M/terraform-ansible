@@ -1,0 +1,30 @@
+---
+- name: Search for wget
+  yum: 
+    list: wget 
+  register: wget_result
+  become: yes
+
+- name: Install the wget 
+  yum: 
+    name: wget 
+    state: present 
+  when: 'wget_result.results | length !=0'
+  become: yes
+    
+- name: Search for git
+  yum: 
+    list: git 
+  register: git_result
+  become: yes
+
+- name: Install the wget 
+  yum: 
+   name: git 
+   state: present 
+  when: 'git_result.results | length !=0'
+  become: yes
+
+    
+        
+      

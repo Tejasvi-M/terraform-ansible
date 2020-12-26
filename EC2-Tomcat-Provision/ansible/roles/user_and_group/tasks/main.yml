@@ -1,0 +1,16 @@
+---
+- name: Create group for the user
+  group:
+    name: tomcat
+    state: present
+  become: yes
+- name: Add user and group for tomcat
+  user: 
+    name: tomcat
+    shell: /bin/bash
+    system: yes
+    state: present
+    groups:
+    - tomcat
+    append: yes
+  become: yes
